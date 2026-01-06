@@ -25,7 +25,20 @@ public class DatabaseInitializer implements BeanPostProcessor {
                 log.info("DATABASE-INIT: DataSource '{}' detected. Running pre-initialization SQL...", beanName);
                 JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
                 jdbcTemplate.execute("CREATE EXTENSION IF NOT EXISTS vector;");
-                log.info("DATABASE-INIT: pgvector extension ensured.");
+
+                // Manually ensure chat memory table exists (Auto-init can be flaky on some RDS
+                // versions)
+                jdbcTemplate.execute("""
+                            CREATE TABLE IF NOT EXISTS spring_ai_chat_memory (
+                                conversation_id VARCHAR(255) NOT NULL,
+                                timestamp TIMESTAMP NOT NULL,
+                                content TEXT NOT NULL,
+                                type VARCHAR(255) NOT NULL,
+                                PRIMARY KEY (conversation_id, timestamp)
+                            );
+                        """);
+
+                log.info("DATABASE-INIT: pgvector extension and chat memory table ensured.");
             } catch (Exception e) {
                 // We log as WARN because it might fail if the user really has ZERO permissions,
                 // but usually, the DB owner can run this.
