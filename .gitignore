@@ -1,0 +1,60 @@
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Java/Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/resources/*.jar
+!**/src/test/resources/*.jar
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Node/Vite
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+
+# Docker
+.dockerignore
+!backend/.dockerignore
+!frontend/.dockerignore
+
+# OS/IDE
+.DS_Store
+._*
+.idea/
+.vscode/
+*.swp
+*.swo
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Media
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# Terraform/Other setup files
+.terraform/
+*.tfstate*
