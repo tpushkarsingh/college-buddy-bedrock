@@ -57,4 +57,16 @@ yarn-debug.log*
 
 # Terraform/Other setup files
 .terraform/
-*.tfstate*
+# Databases
+*.db
+*.sqlite
+
+# Offline App (Python/AI)
+offline/ai_env/
+offline/models/
+offline/vectors/
+offline/data/
+offline/build/
+offline/dist/
+offline/runtime/
+offline/*.spec

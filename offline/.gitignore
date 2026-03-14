@@ -1,0 +1,21 @@
+# Python Environment
+ai_env/
+__pycache__/
+*.pyc
+
+# ML Models and Data (Large Files)
+models/
+vectors/
+data/
+
+# Databases (Sensitive Data)
+*.db
+*.sqlite
+
+# Build Artifacts
+build/
+dist/
+*.spec
+
+# OS specific files
+.DS_Store

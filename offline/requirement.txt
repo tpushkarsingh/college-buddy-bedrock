@@ -1,0 +1,12 @@
+llama-cpp-python
+sentence-transformers
+faiss-cpu
+fastapi
+uvicorn
+python-multipart
+pydantic
+pyinstaller
+pymupdf
+sqlalchemy
+passlib[bcrypt]
+python-jose[cryptography]
